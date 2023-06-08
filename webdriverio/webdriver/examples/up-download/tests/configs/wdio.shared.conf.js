@@ -19,7 +19,8 @@ exports.config = {
   deprecationWarnings: true,
   baseUrl: 'https://the-internet.herokuapp.com/',
   waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
+  // A timeout of 3 min
+  connectionRetryTimeout: 3 * 60 * 1000,
   connectionRetryCount: 3,
 
   // ==============
@@ -29,6 +30,8 @@ exports.config = {
   reporters: ['spec'],
   jasmineOpts: {
     defaultTimeoutInterval: 60000,
+    // Babel setup
+    helpers: [require.resolve('@babel/register')],
   },
 
   // ========
